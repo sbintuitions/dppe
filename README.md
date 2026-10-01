@@ -1,4 +1,4 @@
-# [Decoupled Pose Positional Encoding (NeurIPS2026, Main Track)](https://arxiv.org/abs/2606.31585)
+# [DPPE: Rethinking Camera-Based Positional Encoding for Scaling Multi-View Transformers (NeurIPS2026, Main Track)](https://arxiv.org/abs/2606.31585)
 
 This repository provides the implementation of **Decoupled Pose Positional Encoding (DPPE)**, a positional encoding method for multiview transformers.
 
@@ -175,6 +175,21 @@ bash ./scripts/nvs.sh --pe DPPEdual --dataset MVImgNet2 \
     --resume path/to/checkpoint.pt \
     --test-context-views '4 6 8 10 12'
 ```
+
+## Citation
+
+```
+@misc{kenney2026dpperethinkingcamerabasedpositional,
+      title={DPPE: Rethinking Camera-Based Positional Encoding for Scaling Multi-View Transformers}, 
+      author={Shun Kenney and Teppei Suzuki},
+      year={2026},
+      eprint={2606.31585},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2606.31585}, 
+}
+```
+
 
 ## Acknowledgements & Licenses
 
