@@ -1,0 +1,9 @@
+original_root: dataset/unzipped/MVImgNet2 # path of raw downloaded dataset
+root: dataset/wai_format/MVImgNet2 # path of wai-formatted dataset
+
+dataset_name: MVImgNet2
+version: 0.1
+overwrite: True
+
+scene_filters:
+  - process_state_not: [conversion, finished]

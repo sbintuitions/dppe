@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dppe"
+version = "0.0.0"
+description = "Decoupled Pose Positional Encoding"
+readme = "readme.md"
+requires-python = ">=3.12.0"
+dependencies = [
+    "pyyaml",
+    "tyro",
+    "einops",
+    "tqdm",
+    "numpy",
+    "opencv-python",
+    "imageio[ffmpeg]",
+    "torchmetrics[image]",
+    "pillow",
+    "torch==2.9.1",
+    "torchvision",
+    "tensorboard",
+    "setuptools<70.0.0",
+    "ruff>=0.15.19",
+]
+
+[project.optional-dependencies]
+flash-attn-3 = [
+    "flash-attn-3",
+]
+
+[tool.uv.sources]
+flash-attn-3 = { git = "https://github.com/Dao-AILab/flash-attention.git", subdirectory = "hopper" }
+
+[[tool.uv.dependency-metadata]]
+name = "flash-attn-3"
+version = "0.0.1"
+requires-dist = [
+    "torch==2.9.1",
+    "ninja",
+    "packaging",
+    "setuptools",
+    "numpy",
+]
+
+[tool.uv.extra-build-dependencies]
+flash-attn-3 = [
+    "torch==2.9.1",
+    "ninja",
+    "packaging",
+    "setuptools",
+    "numpy",
+]
+
+[tool.setuptools]
+packages = { find = { where = ["."], include = ["dppe*", "nvs*"] } }
+
+[tool.ruff]
+line-length = 99
+lint.ignore = [
+    "ANN003",  # missing-type-kwargs
+    "FIX001",  # line-contains-fixme
+    "FIX002",  # line-contains-todo
+    "PLR0913", # too-many-arguments
+    "E731"     # lambda-assignment
+]

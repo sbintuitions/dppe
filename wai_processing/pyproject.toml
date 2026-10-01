@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools<81", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wai-processing"
+version = "0.0.0"
+description = "Processing suite for the WorldAI Format (WAI) - (alpha) version"
+readme = "readme.md"
+requires-python = ">=3.12.0"
+dependencies = [
+    "argconf",
+    "cython",
+    "einops",
+    "imageio",
+    "imageio[ffmpeg]",
+    "natsort",
+    "ninja",
+    "numpy",
+    "omegaconf==2.4.0.dev3",
+    "opencv-python-headless==4.10.0.84",
+    "pandas",
+    "portalocker",
+    "pycolmap",
+    #"pyrender",
+    "pyyaml",
+    "safetensors",
+    "spod",
+    "tqdm",
+    "trimesh",
+    "tyro",
+    "OpenEXR",
+    "plyfile",
+    "tree-interval",
+    "matplotlib",
+    "plotly",
+    "Pillow",
+    "h5py",
+    "scipy",
+    "torch",
+    "torchvision",
+    "requests",
+    "quickxorhash",
+    "playwright",
+]
+
+[project.optional-dependencies]
+## Specific stages
+aria = ["projectaria-tools[all]"]
+moge = ["moge @ git+https://github.com/microsoft/MoGe.git"]
+mvsanywhere = [
+    "loguru",
+    "antialiased-cnns",
+    "h5py",
+    "kornia",
+    "timm",
+    "lightning",
+    "moviepy==1.0.3",
+    "grpcio-tools",
+]
+
+## Install all optional dependencies
+all = [
+    "wai-processing[aria]",
+    "wai-processing[moge]",
+    "wai-processing[mvsanywhere]",
+]
+
+[tool.setuptools]
+packages = ["wai_processing"]
+
+[tool.setuptools.package-dir]
+"wai_processing" = "."
